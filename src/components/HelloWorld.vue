@@ -1,11 +1,11 @@
 <template>
-      <form @submit.prevent="submit" class="chat__form">
+      <div class="chat__form">
       <label for="name">User Name</label>
       <input name="name" id="name" v-model="name" />
       <label for="message">Message</label>
       <input name="message" id="message" v-model="newMessage" />
       <button @click="clickButton">Submit</button>
-    </form>
+    </div>
     <div class="chat__messages">
       <div :class="{'message': true, 'mine':message.name === name}" v-for="(message, index) in messages" :key="index">
         <span class="message__owner">{{ message.name + ": " }}</span>
