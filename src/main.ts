@@ -6,7 +6,7 @@ import VueSocketIO from "vue-3-socket.io";
 
 const socket = new VueSocketIO({
   debug: true,
-  connection: "http://localhost:8000",
+  connection: "https://vue-chat-backend.vercel.app/",
   vuex: {
     store,
     actionPrefix: "SOCKET_",
