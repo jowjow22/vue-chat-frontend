@@ -5,7 +5,7 @@ import store from "./store";
 import SocketIO from "socket.io-client";
 import VueSocketIO from "vue-3-socket.io";
 
-const socketConnection = SocketIO("https://vue-chat-backend.vercel.app/");
+const socketConnection = SocketIO("https://vue-chat-io-server.herokuapp.com/");
 
 const socket = new VueSocketIO({
   debug: true,
