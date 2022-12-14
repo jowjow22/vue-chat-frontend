@@ -7,7 +7,7 @@
       <button @click="clickButton">Submit</button>
     </div>
     <div class="chat__messages">
-      <div :class="{'message': true, 'mine':message.name === name}" v-for="(message, index) in messages" :key="index">
+      <div :class="{'message': true, 'mine':message.name === name}" id="messages_display" v-for="(message, index) in messages" :key="index">
         <span class="message__owner">{{ message.name + ": " }}</span>
         <span>{{ message.message }}</span>
       </div>
@@ -37,6 +37,7 @@ export default defineComponent({
       this.$socket.emit("sendMessage", this.newMessage, this.name);
     },
     displayName: function (message: any) {
+      document.getElementById("messages_display").scrollTop = document.getElementById("messages_display").scrollHeight;
       this.messages = this.messages.concat(message);
     },
   },
