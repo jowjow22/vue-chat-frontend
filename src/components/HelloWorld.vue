@@ -1,17 +1,34 @@
 <template>
-      <div class="chat__form">
-      <label for="name">User Name</label>
-      <input name="name" id="name" v-model="name" />
-      <label for="message">Message</label>
-      <input name="message" id="message" v-model="newMessage" />
-      <button @click="clickButton">Submit</button>
+  <div class="chat__form">
+    <label for="name">User Name</label>
+    <input
+      id="name"
+      v-model="name"
+      name="name"
+    >
+    <label for="message">Message</label>
+    <input
+      id="message"
+      v-model="newMessage"
+      name="message"
+    >
+    <button @click="clickButton">
+      Submit
+    </button>
+  </div>
+  <div
+    ref="chat_box"
+    class="chat__messages"
+  >
+    <div
+      v-for="(message, index) in messages"
+      :key="index"
+      :class="{'message': true, 'mine':message.name === name}"
+    >
+      <span class="message__owner">{{ message.name + ": " }}</span>
+      <span>{{ message.message }}</span>
     </div>
-    <div class="chat__messages" ref="chat_box">
-      <div :class="{'message': true, 'mine':message.name === name}" v-for="(message, index) in messages" :key="index">
-        <span class="message__owner">{{ message.name + ": " }}</span>
-        <span>{{ message.message }}</span>
-      </div>
-    </div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -35,7 +52,7 @@ export default defineComponent({
   },
   methods: {
     clickButton: function () {
-      this.$socket.emit("sendMessage", this.newMessage, this.name);
+      this.$socket.emit('sendMessage', this.newMessage, this.name);
     },
     displayName: function (message: any) {
       this.messages = this.messages.concat(message);
