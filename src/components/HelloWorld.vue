@@ -19,33 +19,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 export default defineComponent({
     data() {
         return {
             messages: [],
             name: '',
             newMessage: '',
-        };
+        }
     },
     sockets: {
         connect: function () {
-            console.log('socket connected');
+            console.log('socket connected')
         },
         message: function (message: any) {
-            this.displayName(message);
-            this.$refs.chat_box.scrollTop = this.$refs.chat_box.scrollHeight;
+            this.displayName(message)
+            this.$refs.chat_box.scrollTop = this.$refs.chat_box.scrollHeight
         },
     },
     methods: {
         clickButton: function () {
-            this.$socket.emit('sendMessage', this.newMessage, this.name);
+            this.$socket.emit('sendMessage', this.newMessage, this.name)
         },
         displayName: function (message: any) {
-            this.messages = this.messages.concat(message);
+            this.messages = this.messages.concat(message)
         },
     },
-});
+})
 </script>
 
 <style scoped lang="scss" src="./HelloWorld.scss" />

@@ -17,7 +17,7 @@
   "plugins": [],
   "rules": {
 	"quotes": ["error", "single"],
-	"semi": ["error", "always"],
+	"semi": ["error", "never"],
 	"no-unused-vars": "error"
   }
 }
