@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "lint:script": "eslint --ext .ts,vue --ignore-path .gitignore .",
+    "preview": "vite preview",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@types/socket.io-client": "^3.0.0",
@@ -15,10 +17,25 @@
     "vue-3-socket.io": "^1.0.5",
     "vuex": "^4.1.0"
   },
+  "lint-staged": {
+    "*.{ts,vue}": "eslint --fix"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
     "@vitejs/plugin-vue": "^3.2.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "eslint": "^8.30.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.8.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
+    "prettier": "^2.8.1",
     "sass": "^1.56.1",
-    "typescript": "^4.6.4",
+    "typescript": "^4.9.4",
     "vite": "^3.2.3",
     "vue-tsc": "^1.0.9"
   }
